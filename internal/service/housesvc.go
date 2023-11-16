@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	v1 "hk591/api/property/v1"
-	"hk591/internal/biz"
+	v1 "github.com/stridedot/kratos-example/api/property/v1"
+	"github.com/stridedot/kratos-example/internal/biz"
 )
 
 type HouseSvcService struct {

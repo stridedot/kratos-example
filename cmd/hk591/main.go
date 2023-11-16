@@ -4,8 +4,8 @@ import (
 	"flag"
 	"os"
 
-	"hk591/internal/conf"
-	zap "hk591/pkg/log"
+	"github.com/stridedot/kratos-example/internal/conf"
+	zap "github.com/stridedot/kratos-example/pkg/log"
 
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"

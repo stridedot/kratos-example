@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	v1 "hk591/api/helloworld/v1"
-	"hk591/internal/biz"
+	v1 "github.com/stridedot/kratos-example/api/helloworld/v1"
+	"github.com/stridedot/kratos-example/internal/biz"
 )
 
 // GreeterService is a greeter service.

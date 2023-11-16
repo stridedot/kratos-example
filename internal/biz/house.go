@@ -3,7 +3,7 @@ package biz
 import (
 	"context"
 
-	v1 "hk591/api/property/v1"
+	v1 "github.com/stridedot/kratos-example/api/property/v1"
 
 	"github.com/go-kratos/kratos/v2/log"
 )

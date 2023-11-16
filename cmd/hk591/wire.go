@@ -6,11 +6,11 @@
 package main
 
 import (
-	"hk591/internal/biz"
-	"hk591/internal/conf"
-	"hk591/internal/data"
-	"hk591/internal/server"
-	"hk591/internal/service"
+	"github.com/stridedot/kratos-example/internal/biz"
+	"github.com/stridedot/kratos-example/internal/conf"
+	"github.com/stridedot/kratos-example/internal/data"
+	"github.com/stridedot/kratos-example/internal/server"
+	"github.com/stridedot/kratos-example/internal/service"
 
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"

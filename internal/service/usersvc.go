@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	pb "hk591/api/property/v1"
-	"hk591/internal/biz"
+	pb "github.com/stridedot/kratos-example/api/property/v1"
+	"github.com/stridedot/kratos-example/internal/biz"
 )
 
 type UserSvcService struct {

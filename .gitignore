@@ -14,6 +14,7 @@
 # Dependency directories (remove the comment below to include it)
 vendor/
 tmp/
+configs/
 
 # Go workspace file
 go.work
@@ -38,6 +39,7 @@ bin/
 .idea/
 *.swp
 .air.toml
+.git
 
 # Log
 logs/
