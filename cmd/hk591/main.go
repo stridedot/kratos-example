@@ -50,7 +50,7 @@ func newApp(logger log.Logger, gs *grpc.Server, hs *http.Server) *kratos.App {
 
 func main() {
 	flag.Parse()
-	logger := log.With(zap.Logger("debug"),
+	logger := log.With(zap.Logger("dev"),
 		"ts", log.DefaultTimestamp,
 		"caller", log.DefaultCaller,
 		"service.id", id,
@@ -74,6 +74,9 @@ func main() {
 	if err := c.Scan(&bc); err != nil {
 		panic(err)
 	}
+
+	zlog := log.NewHelper(logger)
+	zlog.Info("config: %+v", bc.String())
 
 	app, cleanup, err := wireApp(bc.Server, bc.Data, logger)
 	if err != nil {
