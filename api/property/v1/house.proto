@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package api.property.v1;
+
+option go_package = "hk591/api/property/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.property.v1";
+
+service HouseSvc {
+	rpc CreateHouse (CreateHouseRequest) returns (CreateHouseReply);
+	rpc UpdateHouse (UpdateHouseRequest) returns (UpdateHouseReply);
+	rpc DeleteHouse (DeleteHouseRequest) returns (DeleteHouseReply);
+	rpc GetHouse (GetHouseRequest) returns (GetHouseReply);
+	rpc PaginatedListHouse (PagintatedListHouseRequest) returns (PaginatedListListHouseReply);
+}
+
+message House {
+	int32 id = 1;
+	string title = 2;
+	string price = 3;
+	string cover_url = 4;
+}
+
+message CreateHouseRequest {}
+message CreateHouseReply {}
+
+message UpdateHouseRequest {}
+message UpdateHouseReply {}
+
+message DeleteHouseRequest {}
+message DeleteHouseReply {}
+
+message GetHouseRequest {}
+message GetHouseReply {}
+
+message PagintatedListHouseRequest {
+	int32 type = 1;
+	int32 page = 2;
+	int32 page_size = 3;
+}
+
+message PaginatedListListHouseReply {
+	int32 code = 1;
+	string msg = 2;
+	string timestamp = 3;
+	repeated House data = 4;
+}
