@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/stridedot/kratos-example/internal/conf"
-	zap "github.com/stridedot/kratos-example/pkg/log"
+	zlog "github.com/stridedot/kratos-example/pkg/log"
 
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"
@@ -50,7 +50,9 @@ func newApp(logger log.Logger, gs *grpc.Server, hs *http.Server) *kratos.App {
 
 func main() {
 	flag.Parse()
-	logger := log.With(zap.Logger("dev"),
+	var mode string = "dev"
+
+	logger := log.With(zlog.Logger(mode),
 		"ts", log.DefaultTimestamp,
 		"caller", log.DefaultCaller,
 		"service.id", id,
@@ -75,6 +77,7 @@ func main() {
 		panic(err)
 	}
 
+	// helper 日志使用案例
 	zlog := log.NewHelper(logger)
 	zlog.Info("config: %+v", bc.String())
 

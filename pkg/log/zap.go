@@ -2,6 +2,7 @@ package log
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/go-kratos/kratos/v2/log"
 	"go.uber.org/zap"
@@ -32,7 +33,10 @@ func NewZapLogger(encoder zapcore.Encoder, level zap.AtomicLevel, opts ...zap.Op
 }
 
 func Logger(mode string) log.Logger {
-	encoder := getEncoder(mode)
+	encoder := getEncoder()
+	if mode == "dev" {
+		return log.NewStdLogger(os.Stdout)
+	}
 	
 	return NewZapLogger(
 	   encoder,
@@ -58,7 +62,7 @@ func getWriterSyncer() zapcore.WriteSyncer {
  }
 
  // getEncoder 以不同格式写入文件
-func getEncoder(mode string) zapcore.Encoder {
+func getEncoder() zapcore.Encoder {
 	encoderConfig := zapcore.EncoderConfig{
 		TimeKey:        "time",
 		LevelKey:       "level",
@@ -71,10 +75,6 @@ func getEncoder(mode string) zapcore.Encoder {
 		EncodeLevel:    zapcore.CapitalLevelEncoder,
 		EncodeDuration: zapcore.SecondsDurationEncoder,
 		EncodeCaller:   zapcore.FullCallerEncoder,
-	}
-
-	if mode == "dev" {
-		return zapcore.NewConsoleEncoder(encoderConfig)
 	}
 
 	return zapcore.NewJSONEncoder(encoderConfig)
